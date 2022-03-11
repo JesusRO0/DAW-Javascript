@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas</title>
+</head>
+
+<body>
+
+    <script>
+        var expFecha = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/(\d{4})$/;
+
+        var fecha1 = "13/07/2001";
+        var fecha2 = "19/02/2001";
+
+        do {
+            var fecha1 = prompt("Escribe la primera fecha");
+            if (!fecha1.match(expFecha)) {
+                alert("La fecha tiene que tener formato dd/mm/yyyy");
+            }
+        } while (!fecha1.match(expFecha));
+
+        do {
+            var fecha2 = prompt("Escribe la primera fecha");
+            if (!fecha2.match(expFecha)) {
+                alert("La fecha tiene que tener formato dd/mm/yyyy");
+            }
+        } while (!fecha2.match(expFecha));
+
+        function restaFecha(fecha1, fecha2) {
+
+            fechaRota1 = [];
+            fechaRota2 = [];
+            fechaRota1 = fecha1.split("/");
+            dia1 = fechaRota1[0];
+            mes1 = fechaRota1[1];
+            year1 = fechaRota1[2];
+            fechaRota2 = fecha2.split("/");
+            dia2 = fechaRota2[0];
+            mes2 = fechaRota2[1];
+            year2 = fechaRota2[2];
+            if (year1 > year2) {
+                yearFinal = year1 - year2;
+                console.log("🚀 ~ file: index.html ~ line 64 ~ restaFecha ~ year1", year1)
+                console.log("🚀 ~ file: index.html ~ line 64 ~ restaFecha ~ year2", year2)
+            } else {
+                yearFinal = year2 - year1;
+                console.log("🚀 ~ file: index.html ~ line 64 ~ restaFecha ~ year1", year1)
+                console.log("🚀 ~ file: index.html ~ line 64 ~ restaFecha ~ year2", year2)
+            }
+            diaYear = yearFinal * 365;
+            if (mes1 > mes2) {
+                mesFinal = mes1 - mes2;
+                console.log("🚀 ~ file: index.html ~ line 75 ~ restaFecha ~ mes1", mes1)
+                console.log("🚀 ~ file: index.html ~ line 75 ~ restaFecha ~ mes2", mes2)
+            } else {
+                mesFinal = mes2 - mes1;
+                console.log("🚀 ~ file: index.html ~ line 75 ~ restaFecha ~ mes1", mes1)
+                console.log("🚀 ~ file: index.html ~ line 75 ~ restaFecha ~ mes2", mes2)
+            }
+            diaMes = mesFinal * 30;
+            if (dia1 > dia2) {
+                diaFinal = dia1 - dia2;
+                console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ dia2", dia2)
+                console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ dia1", dia1)
+            } else {
+                diaFinal = dia2 - dia1;
+                console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ dia2", dia2)
+                console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ dia1", dia1)
+            }
+            diaTotal = diaFinal + diaMes + diaYear;
+            console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ diaYear", diaYear);
+            console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ diaMes", diaMes);
+            console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ diaFinal", diaFinal);
+            console.log("🚀 ~ file: index.html ~ line 80 ~ restaFecha ~ diaTotal", diaTotal);
+            return diaTotal;
+
+        }
+
+        res = restaFecha(fecha1, fecha2);
+        console.log("🚀 ~ file: index.html ~ line 86 ~ res", res);
+    </script>
+
+</body>
+
+</html>

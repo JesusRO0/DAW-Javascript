@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 04</title>
+</head>
+
+<body>
+    <h1>PRÁCTICA 04 EVA 2: Captura de fechas con RegExp</h1>
+    <script>
+
+        //Expresión regular de la fecha
+        var expFecha = /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/(\d{4})$/;
+
+        //Cremaos un bucle donde si la contraseña no entra dentro de la expresión
+        //que hemos creado de error y te la vuelva a pedir.
+        do {
+
+            var fecha1 = prompt("Introduzca una fecha");
+
+            if(expFecha.test(fecha1)){
+            }else{
+                alert("Error, vuelve a intentarlo con el formato dd/mm/yyyy.");
+
+            }
+
+        } while (!expFecha.test(fecha1) || fecha1 == "" ||  fecha1 == null);
+
+        do {
+
+            var fecha2 = prompt("Introduzca una segunda fecha");
+
+            if(expFecha.test(fecha2)){
+            }else{
+                alert("Error, vuelve a intentarlo con el formato dd/mm/yyyy.");
+
+            }
+
+        } while (!expFecha.test(fecha2) || fecha2 == "" ||  fecha2 == null);
+
+        //Funcion que opera la fecha obtenida.
+        function restaFecha(fecha1, fecha2) {
+
+        //Inicializamos las fechas como arrays que obtendremos mediante split.
+        fechaRota1 = [];
+        fechaRota2 = [];
+
+        //Split separa el contedio en arrays, así es como separaremos los dias, meses y años.
+        fechaRota1 = fecha1.split("/");
+
+        dia1 = fechaRota1[0];
+        mes1 = fechaRota1[1];
+        year1 = fechaRota1[2];
+
+        fechaRota2 = fecha2.split("/");
+
+        dia2 = fechaRota2[0];
+        mes2 = fechaRota2[1];
+        year2 = fechaRota2[2];
+
+        //Antes de hacer la operacion tendremos que saber que fecha es mas grande.
+        if (year1 > year2) {
+            yearFinal = year1 - year2;
+
+        } else {
+            yearFinal = year2 - year1;
+
+        }
+
+        //Calculamos el año.
+        diaYear = yearFinal * 365;
+
+        if (mes1 > mes2) {
+            mesFinal = mes1 - mes2;
+
+        } else {
+            mesFinal = mes2 - mes1;
+
+        }
+
+        //Calcularmos el mes.
+        diaMes = mesFinal * 30;
+
+        if (dia1 > dia2) {
+            diaFinal = dia1 - dia2;
+
+        } else {
+            diaFinal = dia2 - dia1;
+
+        }
+
+        //Calculamos los dias finalmente.
+        diaTotal = diaFinal + diaMes + diaYear;
+
+        return diaTotal;
+
+        }
+
+        //Vemos los resultados de la función.
+        res = restaFecha(fecha1, fecha2);
+
+        document.write("<h2>La diferencia en dias es: </h2>" + res);
+
+    </script>
+</body>
+
+</html>

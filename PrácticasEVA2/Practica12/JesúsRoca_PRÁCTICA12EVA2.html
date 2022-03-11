@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 12 EVA 2: mouse = Colores</title>
+    <style>
+        .contenedor{
+            width:70vw;
+            height:70vh;
+            margin: 30px;
+            border: 2px solid black;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <div class="contenedor"></div>
+    <script> 
+
+    //Obtenermos el contenedor donde iran todos los colores y eventos
+    var contenedor = document.getElementsByClassName("contenedor")[0];
+
+    //Este evento colorea el contenedor en verde al pasar el ratón por encima.
+    contenedor.addEventListener("mouseover", () => {
+        contenedor.style.backgroundColor = "green";
+        });
+    //Este evento vuelve blancon el contenedor cuando el ratón sale del contenedor.
+    contenedor.addEventListener("mouseout", () => {
+        contenedor.style.backgroundColor = "white";
+        });
+
+    //Este evento colorea el contenedor de rojo o azul dependiendo del boton del ratón que pulsemos.
+    contenedor.addEventListener("mousedown", function(ev){
+        //Esta función desactiva el menú del click derecho del ratón.
+        contenedor.oncontextmenu = function() {
+        return false;
+    }
+        console.log(document.getElementsByClassName("contenedor")[0]= "Boton: "+ ev.button);
+
+        // 0 es el botón izquierdo.
+        if(ev.button == 0){
+            contenedor.style.backgroundColor = "red";
+        }
+        // 2 es el boton secundario.
+        if(ev.button == 2){
+
+            contenedor.style.backgroundColor = "blue";
+        }
+  
+        });
+
+    //Ultimo evento que cuando dejamos de hacer click en un botón del raton vuleve a ser verde.
+    contenedor.addEventListener("mouseup", () => {    
+        contenedor.style.backgroundColor = "green";
+    }); 
+    </script>
+
+</body>
+
+</html>

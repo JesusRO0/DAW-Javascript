@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 19 EVA 2: Actualiza form con un registro JSON</title>
+    <style>
+        form{
+            background-color: #EEEEEE;
+            border: 2px solid black;
+            font-size: 1.2em;
+            padding: 10px;
+            width: 400px;
+            box-shadow: 0px 2px 3px black;
+            display: flex;
+            flex-flow: column;
+        }
+        form input{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <form action="" method="get" id="form"></form>
+
+    <script> 
+    //Realizamos el fetch con nuestro archivo json para recoger los datos.
+    fetch("form.json")
+
+    //Compración por si el json da error.
+    .then(respuesta => {
+
+        if (respuesta.ok) {
+
+            return respuesta.json();
+
+        } else {
+
+            throw new Error("Error, no se puedo acceder a los datos");
+        }
+    })
+
+    //Función del json que coloca todos las datos en sus respectivos inputs.
+    .then(miJSON => {
+
+        let form = document.getElementById("form");
+        //Una vez tenemos el objeto json, por cada campo creamos un label y un input, y los introducimos en el formulario.
+        for ( let campo in miJSON[0] ) {
+
+            let label = document.createElement("label");
+            label.htmlFor = campo;
+            label.innerHTML = campo;
+            let input = document.createElement("input");
+            input.id = campo;
+            input.name = campo;
+            input.value = miJSON[0][campo];
+            form.appendChild(label);
+            form.appendChild(input);
+        }
+    })
+    //Si hay algún error
+    .catch(error => {
+
+        console.log("Error: " + error);
+        
+    }); 
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <div>
+        Pinta de rojo
+        <button>Pinta de verde</button>
+    <script>
+        let boton= document.querySelector("button");
+        let div = document.querySelector("div");
+        
+        boton.addEventListener("click", (ev) => {
+        document.body.style.backgroundColor = "green";
+        ev.stopPropagation();
+        }); 
+            div.addEventListener("click", (ev) => {
+        document.body.style.backgroundColor = "red";
+        });
+</script>
+    </script>
+
+</body>
+
+</html>

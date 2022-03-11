@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 20 EVA 2: Autorrelleno de form desde Internet</title>
+    <style>
+        form{
+            background-color: #EEEEEE;
+            border: 2px solid black;
+            font-size: 1.2em;
+            padding: 10px;
+            width: 400px;
+            box-shadow: 0px 2px 3px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <form action="" method="get" id="form">
+
+        <label for="UserId">UserId</label>
+        <input type="text" id="UserId" name="UserId"><br>
+
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id"><br>
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="body">Body</label>
+        <input type="text" id="body" name="body"><br>
+
+        <button type="button" id="anterior" value="0">Anterior</button>
+        <button type="button" id="siguiente" value="0">Siguiente</button> 
+
+    </form>
+
+    <script> 
+
+    //Posicion del elemento que se muestra (empezamos en el 0).
+    posActual = 0;
+
+    document.getElementById("anterior").addEventListener("click", () => {
+        cargarDatos(posActual-1)}
+    );
+    document.getElementById("siguiente").addEventListener("click", () => {
+        cargarDatos(posActual+1)}
+    );
+
+    //Cargamos en el formulario los datos del primer elemento.
+    cargarDatos(0);
+
+    //Función que recibe la posición del elemento a cargar en el formulario.
+    function cargarDatos(posicion) { 
+
+        fetch("http://jsonplaceholder.typicode.com/posts")
+
+        .then(respuesta => {
+
+            if (respuesta.ok) {
+
+                return respuesta.json();
+
+            } else {
+
+                throw new Error("No se pudo acceder a los datos");
+            }
+        })
+        .then(datos => {
+
+            //Si la posición es -1, la cambiamos al último elemento para dar la vuelta.
+            if ( posicion < 0 ) {
+
+                posicion = datos.length-1;
+
+            //Si la posición es mayor al número de elementos, la cambiamos al primer elemento para dar la vuelta.
+            } else if ( posicion >= datos.length ) {
+
+                posicion = 0;
+            }
+            if (posicion < datos.length) {
+
+                document.getElementById("UserId").value = datos[posicion].userId;
+                document.getElementById("id").value = datos[posicion].id;
+                document.getElementById("title").value = datos[posicion].title;
+                document.getElementById("body").value = datos[posicion].body;
+                posActual = posicion;
+            }
+        })
+
+        .catch(error => {
+
+            console.log("Error: " + error);
+        });  
+    }
+    
+    </script>
+
+</body>
+
+</html>

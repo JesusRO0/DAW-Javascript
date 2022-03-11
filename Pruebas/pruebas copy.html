@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <p>Uno</p>
+    <p>Dos</p>
+    <p>Tres</p>
+    <p>Cuatro</p>
+    <p>Cinco</p>
+
+    <script>
+
+    let parrafos = document.querySelectorAll("p");
+    let parrafo;
+
+    function muestra(){
+        alert(parrafo.textContent);
+    }
+
+    for (let parrafo of parrafos) {
+        parrafo.addEventListener("click", muestra);
+    }
+
+    /*1. ¿Qué piensas que hace o debería hacer?
+    Recorre todos los párrafos pulsando cualquier boton.
+    2. Si lo intentamos probar veremos que siempre nos sale el valor 4 al pulsar sobre cada párrafo. Eso es
+    debido a que queda guardado el valor del último elemento parrafo. Soluciónalo.
+
+    3. Fuera del bucle añádele un nuevo párrafo con texto Cinco con su listener correspondiente
+    4. Modifica el ejercicio para usar una función no Callback externa al addEventListener().*/
+    </script>
+</body>
+
+</html>

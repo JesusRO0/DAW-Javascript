@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 10 EVA 2: Mover caja</title>
+    <style>
+        #contenedor{
+            width:250px;
+            height:200px;
+            position:absolute;
+            overflow:hidden;
+            background-color: violet;
+        }
+        </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+        <div id="contenedor">
+
+        <div>Hola Caracola</div>
+
+        </div> 
+    <script>
+
+        //Creamos un evento que intereactue con el movimiento del ratón.
+        document.addEventListener('mousemove',function(ev){
+
+            //Asignamos a las variables las coordenadas del raton cuando se mueve menos algunos pixeles para que el contenedor quede mas centrado en el ratón.
+            var x = ev.pageX + document.getElementById('contenedor').offsetLeft - 100;
+            var y = ev.pageY + document.getElementById('contenedor').offsetTop - 150;
+
+            //les asignamos las propiedades left y top al contenedor para su desplazamiento.
+            document.getElementById('contenedor').style.left = (x / 2) + 'px';
+            document.getElementById('contenedor').style.top = (y / 2) + 'px';
+
+        }); 
+
+    </script>
+</body>
+
+</html>

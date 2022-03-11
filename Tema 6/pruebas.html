@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Ejercicio 1 </title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <main id="principal">
+        <p>Soy el primer párrafo</p>
+        <p>Soy el segundo párrafo</p>
+        <p>Soy el tercer párrafo</p>
+    </main>
+    <script>
+
+    let capa = document.getElementById("principal");
+    let nuevoParrafo = document.createElement("p");
+    nuevoParrafo.textContent = "Soy el nuevo tercer párrafo, el otro es el impostor";
+    let segParrafo = document.querySelectorAll ("#principal p:nth-of-type(3)")[0];
+
+    capa.insertBefore (nuevoParrafo,segParrafo);
+
+    </script>
+</body>
+
+</html>

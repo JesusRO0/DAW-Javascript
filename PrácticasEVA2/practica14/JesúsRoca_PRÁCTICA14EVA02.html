@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 14 EVA 2: ¡Arrástrame!</title>
+    <style>
+
+    #origen{
+        background-color: yellow;
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        float: left;
+        padding: 20px;
+        font-weight: bold;
+    }
+
+    #destino{
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        float: left;
+        padding: 20px;
+        font-weight: bold;
+        background-color: white;
+        margin-left: 250px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <div id="origen" draggable="true">Soy arrastrable</div>
+    <div id="destino">Soy el destino</div>
+
+    <script>
+
+    //Guardamos los dos contenedores en las respectivas varables.
+    origen = document.getElementById("origen");
+    destino = document.getElementById("destino");
+
+    //Cuando cogemos al contenedor origen y lo movemos este cambia su opacidad.
+    origen.addEventListener("dragstart", () => {
+
+        origen.style.opacity="50%";
+    });
+
+    //Cuando origen llega a su destino la opacidad se elimina.
+    origen.addEventListener("dragend", () => {
+
+        origen.style.opacity="100%";
+    });
+
+    //Cuando se agarre al origen se tornará rojo hasta llegar al destino.
+    destino.addEventListener("dragenter", () => {
+
+        destino.style.backgroundColor = "red";
+    });
+
+    //Cuando el origen entra en el destino se torna rojo pero si lo sacamos volverá a ser blanco.
+    destino.addEventListener("dragleave", () => {
+
+        destino.style.backgroundColor = "white";
+    });
+
+    //Si se sulta dentro cambiara el texto y el color como dice el ejercicio. (el texto antiguo se esconde con visibility).
+    destino.addEventListener("drop", () => {
+
+        destino.style.backgroundColor = "yellow";
+        destino.innerHTML = "¡Lo has logrado!";
+        origen.style.visibility = "hidden";
+    });
+
+
+    //Debemos eliminar el estado por defecto de dragover para poder tornarlo bien de rojo.
+    destino.addEventListener("dragover", (ev) => {
+
+        ev.preventDefault();
+
+    //Luego le aplicamos el evento normal y lo tornamos en rojo, esto ocurrirá cuando soltemos el contenedor
+    //en su interior.
+        destino.style.backgroundColor = "red";
+    });
+    </script>
+
+</body>
+
+</html>

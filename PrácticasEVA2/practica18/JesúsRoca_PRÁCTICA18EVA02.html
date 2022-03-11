@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 18 EVA 2: Prometiendo</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <button>Abortar!!</button>
+    <div id="capa"></div>
+    
+    <script type="module">
+
+    //Importamos el módulo
+    import {temporizador} from "./modulo.js";
+
+    //Le pasamos el boton.
+    var botoncito = document.getElementsByTagName("button")[0];
+    //Guardamos la capa.
+    var capa = document.getElementById("capa");
+    
+    //Guardamos los milisegundos que le pedimos al usuario para la promesa,
+    //es el tiempo que tendrá que esperara no ser que se pulse el botoncito.
+    var milisegundo = prompt("Escribe el tiempo en ms de la promesa");
+    temporizador(milisegundo, botoncito, capa);
+
+    </script>
+
+</body>
+
+</html>
+

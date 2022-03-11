@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 17 EVA 2: Actualiza con cookies</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <form action="">
+        <table>
+            <tr>
+                <td><label for="nombre">Nombre</label></td>
+                <td><input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" id="email" name="email" placeholder="ejemplo@um.es" required></td>
+            </tr>
+            <tr>
+                <td><label for="tel">Teléfono</label></td>
+                <td><input type="text" id="tel" name="tel" placeholder="Ej. +34668899999" required></td>
+            </tr>
+            <tr>
+                <td><label for="pais">País</label></td>
+                <td><input type="text" id="pais" id="pais" required></td>
+            </tr>
+        </table>
+        <button id="submit" type="submit">Enviar</button>
+    </form>
+
+    <script> 
+
+    formulario = document.forms[0];
+
+    //Si hay una galleta llamada nombre quiere decir que se han guardado los datos del formulario.
+    if(getCookie("nombre")){
+
+        //Si el usuario acepta carganos los datos de las galletas.
+        if(confirm("¿Deseas cargar los datos guardados?")){
+
+            formulario.nombre.value = getCookie("nombre");
+            formulario.email.value = getCookie("email");
+            formulario.tel.value = getCookie("tel");
+            formulario.pais.value = getCookie("pais");
+        }
+    }
+
+    //Este evento preguntará al usuario si quiere guardar los datos, si es así se guardará durante una semana 
+    //como marca el ejercicio. 
+    formulario.addEventListener("submit", (ev) => {
+
+        if(confirm("¿Quieres guardar esta información?")){
+
+            setCookie("nombre", formulario.nombre.value, 7*24*60*60);
+            setCookie("email", formulario.email.value, 7*24*60*60);
+            setCookie("tel", formulario.tel.value, 7*24*60*60);
+            setCookie("pais", formulario.pais.value, 7*24*60*60);
+        }
+    });
+
+    //Igual que en el ejercicio anterior. Si existe la galleta devulve su valor y si no, pues null.
+    function getCookie(nom){
+
+        let arrayCookie = document.cookie.split("; ");
+        let cookies = new Array();
+
+        for (let cookie of arrayCookie){
+
+            let [nombre, valor] = cookie.split("=");
+
+            if(nombre == nom){
+                return valor;
+            }
+        }
+        return null;
+    }
+
+    //Igual que en el ejercicio anterior. Función que recibe los datos de una cookie para crearla o modificarla. Tambiém puede recibir un dato de tiempo como tercer parámetro.
+    function setCookie(nombre, valor, maxAge = null) {
+
+        console.log(nombre+valor+maxAge);
+        let cookie = nombre+"="+valor;
+
+        if(maxAge != null){
+
+            cookie += `; max-age=${maxAge}`;
+        }
+
+        document.cookie = cookie;
+    }
+
+    </script>
+
+</body>
+
+</html>
+

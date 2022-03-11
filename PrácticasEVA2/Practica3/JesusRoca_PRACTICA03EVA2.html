@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 03</title>
+</head>
+
+<body>
+    <h1>Práctica 03 EVA 2: Validar login y password</h1>
+    <script>
+
+    //Hacemos un bucle while para pedir el usuario o la contraseña si los datos se introducen mal.
+     do {
+
+        var usuario = prompt("Introduzca un nombre de usuario");
+
+        //Expresiones regulares que pide el ejercicio:
+        //Minúsculas y números.
+        expUser = /^[a-z0-9]{8,12}$/;
+        //Incluye minúsculas, mayúsculas, números y carácteres alfanuméricos incluyendo _ 
+        expPass = /^[a-zA-Z0-9\w]{8,12}$/;
+
+        //Si no se cumple la expresión se muestra un mensaje de error.
+        if(expUser.test(usuario)){
+        }else{
+            alert("Error, vuelve a intentarlo.");
+
+        }
+
+    } while (!expUser.test(usuario) || usuario == "" ||  usuario == null);
+
+    do {
+
+        var password = prompt("Introduzca una contraseña");
+
+        //Si no se cumple la expresión se muestra un mensaje de error.
+        if(expPass.test(password)){
+        }else{
+            alert("Error, vuelve a intentarlo.");
+
+        }
+
+    }while (!expPass.test(password)  || password == "" ||  password == null);
+
+        //Mostramos los datos
+        document.write(`<h2>Sesión Iniciada</h2>`);
+        document.write(`<h3>Usuario: ${usuario}</h3>`);
+        document.write(`<h3>Contraeña: ${password}</h3>`);
+
+    </script>
+</body>
+
+</html>

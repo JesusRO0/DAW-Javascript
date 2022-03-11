@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 09 EVA 2: Estructura Doc HTML</title>
+</head>
+
+<body>
+    <section id="s1">
+        <h1>Título</h1>
+        <p>Ejemplo de documento <strong>DOM</strong> Visión en árbol</p>
+    </section>
+    <section id="s2">
+        <p>Aquí solo hay texto</p>
+    </section>
+
+    <script>
+
+    //bucle que muestra todos los nodos
+    for (let i = 0; i < document.body.childNodes.length; i++) {
+
+        //Nodos de las web
+      console.log( document.body.childNodes[i] );
+
+       //Nombre del nodo
+      console.log( document.body.childNodes[i].nodeName );
+
+
+        //Atributos del nodo
+      console.log(document.body.childNodes[i].attributes);
+    }
+
+    </script>
+</body>
+
+</html>

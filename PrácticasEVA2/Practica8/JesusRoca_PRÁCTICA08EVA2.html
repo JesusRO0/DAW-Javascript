@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 08 EVA 2: Contamos palabras en el Lorem Ipsum</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+
+    <p id="resultado"></p>
+
+    <div id="papaParrafo">
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dolores doloribus fuga dolorum! Ab architecto libero perferendis? Mollitia vel voluptates laborum ad error, dolorem, aspernatur provident, facilis architecto repellat dolor?</p>
+        <p>Delectus soluta ipsam, saepe in dignissimos sint nam error, id temporibus ab voluptates, doloremque nobis voluptate numquam consectetur molestias nisi officiis eius quas corrupti deserunt expedita voluptatibus voluptas. Delectus, perferendis?</p>
+        <p>In, aliquam culpa fugiat non delectus quaerat voluptatibus dolorum assumenda ad aut facilis modi ratione sint quod, dignissimos minus expedita et deleniti nemo. Mollitia aperiam labore, nostrum corporis delectus minima!</p>
+        <p>Id repudiandae necessitatibus voluptatem reprehenderit, odio dolore eius sunt corporis quisquam, illum fugit at nobis. Corrupti fuga, ad, rerum eligendi ipsum dicta nihil eos provident facere et quisquam? Ex, voluptatibus.</p>
+        <p>Inventore doloribus, soluta cumque expedita repellat alias libero esse dicta sit quas quod amet at corporis nam optio! Quo rerum deserunt est at commodi dolorum voluptates ea tempore sint. Quaerat?</p>
+        <p>Temporibus assumenda dignissimos blanditiis? Ab ea eum architecto aperiam nam voluptate laudantium! Impedit deleniti similique ipsum pariatur dolores ratione, incidunt consectetur, voluptate voluptates asperiores mollitia sunt fugit at, libero dolorem?</p>
+        <p>Quam tenetur illo, repudiandae dolore omnis modi blanditiis minus velit voluptatibus, accusamus libero tempora quis id soluta, animi quisquam non dolor enim. Voluptate magnam quo temporibus ducimus asperiores modi ullam.</p>
+        <p>Omnis blanditiis vitae ad exercitationem dignissimos animi itaque quis harum error impedit fugiat, ratione odio maxime veniam natus accusamus magnam. Commodi eos nobis mollitia perspiciatis deserunt perferendis placeat tenetur odio!</p>
+        <p>Ex, odit facilis, eius adipisci sapiente labore quod nisi exercitationem voluptate consequatur ipsum totam quam, quidem iusto illo sequi ducimus natus reprehenderit quaerat obcaecati quas suscipit velit quia maiores! Ipsa!</p>
+        <p>Rerum amet ad incidunt! Suscipit corrupti inventore porro dolorum, quibusdam, autem sint praesentium assumenda, facere temporibus repellendus veniam voluptatum qui corporis amet perspiciatis? Animi consequatur voluptates, distinctio quia ea cumque.</p>
+        <p>Natus et suscipit fuga, unde vitae alias consequuntur facere minus reiciendis dolorem animi aliquid a ex praesentium maxime voluptatem repudiandae libero laboriosam optio. Nulla maxime laudantium, accusamus incidunt ex quae?</p>
+        <p>Facere asperiores dolores esse a itaque maiores voluptatem. Aperiam magnam sint, rerum eius distinctio assumenda nisi doloribus sequi praesentium maiores consequuntur eligendi repellat neque enim dolor aut incidunt perspiciatis cupiditate.</p>
+        <p>Nostrum velit, est delectus dolore in minus similique repellendus aspernatur molestiae magnam vitae accusamus recusandae nulla nisi impedit, provident nobis mollitia ipsam nihil. Illum alias in, culpa cum animi inventore.</p>
+        <p>Est fugit maxime totam? Quas ipsa ad quidem consectetur, tempore quos, sapiente consequatur magni atque perspiciatis quam possimus necessitatibus, doloremque praesentium aliquid quod voluptatum rem facilis mollitia. Quia, nam atque!</p>
+        <p>Quis eaque provident ut atque commodi itaque alias vitae nihil architecto, numquam est tempora earum sint ipsum porro laborum et, eos officia nemo doloribus voluptate nostrum a, optio iure? Delectus!</p>
+        <p>Quis nesciunt doloribus eos unde illum sequi voluptatem doloremque accusantium hic omnis corporis dolore, iusto fuga eveniet vel minus quo obcaecati enim! Eveniet deleniti aut distinctio laborum, non ut delectus!</p>
+        <p>Cupiditate dignissimos ipsum magni alias quo eveniet vero quaerat iure ducimus, odio, ipsa odit? Magni, harum molestiae. Sint magni, vel facilis deleniti beatae nisi atque, ipsam velit dolorem quia rem!</p>
+        <p>Dolore corporis incidunt necessitatibus minima eligendi facere magnam expedita inventore illum est non animi similique accusantium quidem ab, architecto provident sint, quam reprehenderit magni illo iure voluptatum ratione? Alias, eaque!</p>
+
+    </div>
+
+    <script>
+
+    /*function palabras(){
+
+        var parrafos = document.querySelectorAll("p");
+
+        var texto = [];
+
+        texto = parrafos.split(" ");
+
+        console.log(texto);
+    }
+
+
+    palabras();*/
+
+
+
+    function palabras() {
+
+        var contarParrafo = document.getElementById ("papaParrafo");
+
+        var contar = contarParrafo.childElementCount;
+
+        var pos = 0;
+
+            //En párrafo recogemos los párrafos
+            var parrafo = [];
+
+            //En palabrasTotal recogemos el total de palabras contadas
+            var palabrasTotal = 0;
+
+        while(contar == null){
+
+            contar--;
+            console.log(contar);
+        
+            for (var parrafos of document.querySelectorAll("p")) {
+
+            //Recogemos el texto dentro de la etiqueta p
+            parrafo[pos] = parrafos.innerHTML;
+            console.log("🚀 ~ file: index.html ~ line 42 ~ espacios ~ parrafo[pos]", parrafo[pos]);
+
+            //Cortamos los espacios del final del párrafo y lo convertimos en un array rompiendo los espacios de entre medio
+            palabras = parrafo[pos].trim().split(" ");
+
+            //Recogemos el número de palabras mediante la longitud del array
+            numPalabras = palabras.length;
+
+            //Acumulamos todas las palabras
+            palabrasTotal += numPalabras;
+
+            pos++;
+
+            }
+
+
+    }
+        return palabrasTotal;
+
+        }
+
+        numPalabras = palabras();
+
+        //Escribimos en negrita el número de palabras
+        document.getElementById("resultado").innerHTML = `<strong>${numPalabras}</strong>`;
+
+       /* while( ){
+
+
+
+        }
+
+        for (var parrafos of document.querySelectorAll("p")) {
+
+            //Recogemos el texto dentro de la etiqueta p
+            parrafo[pos] = parrafos.innerHTML;
+
+            //Cortamos los espacios del final del párrafo y lo convertimos en un array rompiendo los espacios de entre medio
+            palabras = parrafo[pos].trim().split(" ");
+
+            //Recogemos el número de palabras mediante la longitud del array
+            numPalabras = palabras.length;
+
+            //Acumulamos todas las palabras
+            palabrasTotal += numPalabras;
+
+            pos++;
+
+        }
+
+        return palabrasTotal;
+
+        }
+
+        numPalabras = palabras();
+
+        //Escribimos en negrita el número de palabras
+        document.getElementById("resultado").innerHTML = `<strong>${numPalabras}</strong>`;*/
+
+    </script>
+</body>
+
+</html>

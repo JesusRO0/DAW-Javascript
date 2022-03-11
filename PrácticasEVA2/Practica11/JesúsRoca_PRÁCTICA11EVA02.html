@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 11 EVA 2: Tecla=Imagen</title>
+    <style>
+        .contenedor{
+            width:70vw;
+            height:70vh;
+            margin: 30px;
+            background-color: black;
+            color:white;
+            text-align: center;
+            border: 2px solid black;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">Pulse Alt+F12 y
+        obtenga una nueva imagen de fondo</div>
+    <script>
+
+        //Funcion que genera la imagen pedida en el ejercicio.
+        function verImagen(ev){
+
+            //Guardamos el contenedor de la imagen 
+            var imagen = document.getElementsByClassName("contenedor")[0];
+
+            //Si se pulsa la tecla alt sale un mensaje de que ha pulsado y si seguido presionamos F12 se genera la imagen.
+            if (ev.altKey) {
+
+                console.log("La tecla ALT ha sido pulsada");
+                    if(ev.key == "F12"){
+                        imagen.style.backgroundImage = 'url("https://source.unsplash.com/random")';
+                    }
+                //Si no pulsamos alt nos lo dice.
+                } else {
+
+                console.log("La tecla ALT NO ha sido pulsada");
+                }
+
+        }
+        //Aplicamos la funcion con keydown que es quien recoje la tecla.
+        document.addEventListener("keydown", verImagen);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Mostrar dialogos </title>
+</head>
+
+<body>
+    <h1>Información de cuenta :D</h1>
+    <script>
+        let nombre = prompt("Introduzca su nombre: ");
+        let apellidos = prompt("Introduce sus apellidos: ");
+        let direccion = prompt("Introduzca su dirección: ");
+        let telefono = prompt("Introduzca su teléfono: ");
+        let DNI = prompt("Introduzca su DNI: ");
+
+        alert(`Su información es: 
+        Nombre: ${nombre}
+        Apellidos: ${apellidos}
+        Dirección: ${direccion}
+        Teléfono: ${telefono}
+        DNI: ${DNI}`);
+
+        document.write(`DocumentWrite.  Su información es... Nombre: ${nombre}, Apellidos: ${apellidos}, Dirección: ${direccion}, Teléfono: ${telefono}, DNI: ${DNI}`);
+
+        document.getElementById("Información").innerHTML = `InnerHTML. Su información es... Nombre: ${nombre}, Apellidos: ${apellidos}, Dirección: ${direccion}, Teléfono: ${telefono}, DNI: ${DNI}`;
+    </script>
+</body>
+
+</html>

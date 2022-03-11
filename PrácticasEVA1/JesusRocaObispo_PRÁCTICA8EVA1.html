@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+    div {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+    }
+    button{
+        position: fixed;
+        z-index: 2;
+    }
+</style>
+<body> 
+
+    <script>
+
+        myInterval = setInterval(miFondo, 1000);
+
+        function miFondo() {
+
+        var color1 = parseInt(Math.random()*255);
+        var color2 = parseInt(Math.random()*255);
+        var color3 = parseInt(Math.random()*255);
+
+        document.write(`<div style="background-color: rgb(${color1},${color2},${color3})"></div>`);
+        document.write(`<button onclick="stopColor()">Para tonto!</button>`);
+        }
+
+        function stopColor() {
+
+            clearInterval(myInterval);
+
+        }
+
+        setInterval(miFondo, 1000);
+
+    </script>
+</body>
+
+</html>

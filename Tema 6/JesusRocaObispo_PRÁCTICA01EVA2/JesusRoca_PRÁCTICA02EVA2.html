@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Práctica 01 </title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <script>
+
+        function Punto(x,y){
+
+            this.x = x;
+            this.y = y;
+
+            this.esNumero = function(x,y){
+                if(isNaN(this.x) || isNaN(this.y)){
+                    this.x=0;
+                    this.y=0;
+                }
+            }
+
+            this.cambiar = function(x,y){
+                this.x=2;
+                this.y=5;
+            }
+            
+            this.copia = function(puntoB){
+                let puntoX= new Punto(puntoB.x,puntoB.y);
+                document.write(`Las variables actuale son: ${this.puntoX}`);
+
+            }
+
+            this.iguales = function(x,y){
+
+
+            }
+
+            this.suma = function(x,y){
+
+
+            }
+            
+            
+
+        }
+
+        puntoA = new Punto(5,10);
+        puntoA.esNumero();
+
+        puntoB = new Punto(2,5);
+        puntoB.copia();
+        
+    </script>
+</body>
+
+</html>

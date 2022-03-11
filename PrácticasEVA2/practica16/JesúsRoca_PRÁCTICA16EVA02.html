@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PRÁCTICA 16 EVA 2: Contador de visitas</title>
+</head>
+<style>
+
+    #visitas{
+        font-size: 2em;
+    }
+
+</style>
+<body>
+    <h1>Información</h1>
+    <div id="visitas"></div>
+    <script> 
+
+    //En sesión veremos si aceptamos o no las galletas.
+    sesion = getCookie("sesion");
+
+    //Si sesion almacena algo quiere decir que el usuario a contestado al mensaje.
+    if (sesion) {
+
+        //Si se pulsa el botón Aceptar aumentamos la visita y la vemos.
+        if (sesion == "true") {
+
+            visitas = getCookie("visitas");
+            setCookie("visitas", ++visitas, 60*60*24*365);
+            document.getElementById("visitas").innerHTML = visitas;
+        
+            //Si se pulsa en cancelar mostramos un mensaje :C
+        } else {
+
+            document.getElementById("visitas").innerHTML = "No quieres galletas y por lo tanto no hay visitas.";
+        }
+
+        //Si no contiene nada Sesion quiere decir que es la primera vez que interactuamos con la ventana.
+    } else {
+
+        //Cuando se pulse Aceptar cambiamos la sesión a True.
+        if (aceptarCookies()){
+
+            setCookie("sesion", "true");
+            visitas = getCookie("visitas");
+
+            //Aqui comprobamos si ya hay galletas y si la hay aumentamos las visitas.
+            if (visitas){
+
+                setCookie("visitas", ++visitas, 60*60*24*365);
+
+                //Si no hay visitas es que se ha abierto la pagina por primera vez, así que ponemos visitas a 1 y ponemos las galletas en marcha.
+            } else {
+
+                visitas = 1;
+                setCookie("visitas", visitas, 60*60*24*365);
+
+            }
+
+            document.getElementById("visitas").innerHTML = visitas;
+
+            //Si se rechaza las galletas borramos las visitas y cambiamos la sesion a false.
+        } else {
+
+            setCookie("sesion", "false");
+            setCookie("visitas", 0, 0);
+            document.getElementById("visitas").innerHTML = "No quieres galletas y por lo tanto no hay visitas.";
+
+        }
+    }
+
+    //Ventana que anuncia el uso de galletas.
+    function aceptarCookies() {
+
+        return confirm("Esta página usa cookies para almacenar el número de visitas que hace cada usuario. Si está conforme con ello, pulse Aceptar. De otro modo la página no realizará su labor y eliminará las cookies existentes.");
+    }
+
+    //Función que recibe el nombre de una cookie. Si existe, devuelve su valor, en caso contrario, devuelve null.
+    function getCookie(galleta){
+
+        let arrayCookie = document.cookie.split("; ");
+        let cookies = new Array();
+
+        for (let cookie of arrayCookie) {
+
+            let [nombre, valor] = cookie.split("=");
+
+            if ( nombre == galleta ) {
+
+                return valor;
+
+            }
+        }
+
+        return null;
+    }
+
+    //Función que recibe los datos de una cookie para crearla o modificarla. Tambiém puede recibir un dato de tiempo como tercer parámetro.
+    function setCookie(nombre, valor, maxAge = null){
+
+        console.log(nombre+valor+maxAge);
+        let cookie = nombre+"="+valor;
+
+        if(maxAge != null){
+
+            cookie += `; max-age=${maxAge}`;
+
+        }
+
+        document.cookie = cookie;
+    }
+    </script>
+
+</body>
+
+</html>

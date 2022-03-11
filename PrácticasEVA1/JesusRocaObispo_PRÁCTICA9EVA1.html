@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Práctica 9 Eva1</h1>
+    <script>
+        var nombre = prompt("Introduce tu nombre");
+        var apellido = prompt("Introduce tus apellidos");
+        var salario = parseInt(prompt("Introduce tu salario"));
+        var edad = prompt("Introduce tu edad");
+        var salariofinal=0;
+
+        document.write(`Su nombre es ${nombre}<br>`);
+        document.write(`Sus apellidos son ${apellido}<br>`);
+        document.write(`Su edad es ${edad}<br>`);
+
+        if(salario < 1000){
+            if(edad < 30){
+                salariofinal = 1100;
+                document.write(`Su salario es ${salariofinal}<br>`);
+            }else if(edad >= 35 || edad <= 45){
+                salariofinal = salario+ (salario * 0.03);
+                document.write(`Su salario es ${salariofinal}<br>`);
+            }else if(edad > 45){
+                salariofinal = salario+(salario * 0.15);
+                document.write(`Su salario es ${salariofinal}<br>`);  
+            }
+        }
+
+        if(salario > 1000 && salario < 2000){
+            if(edad > 45){
+                salariofinal = salario+(salario*0.03);
+                document.write(`Su salario es ${salariofinal}<br>`);
+            }else if(edad <= 45){
+                salariofinal = salario+(salario * 0.10);
+                document.write(`Su salario es ${salariofinal}<br>`);
+            }
+        }
+
+        if(salario > 2000){
+            document.write(`Su salario es: ${salario}`);
+        }
+
+    </script>
+</body>
+</html>

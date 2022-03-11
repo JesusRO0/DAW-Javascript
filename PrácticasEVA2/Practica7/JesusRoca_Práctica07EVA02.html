@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 07 EVA 2: Nuevo párrafo en el Lorem Ipsum</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <ol id="lista">
+        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus numquam quasi, enim dicta eius dolorem, illo non, provident ipsa ab voluptas libero? Magnam, aliquid facilis distinctio facere beatae reiciendis sit?</li>
+        <li>Accusantium magni aperiam minima suscipit eum, reiciendis sapiente officiis iure error consequatur explicabo nobis, eaque veritatis natus itaque harum voluptas autem! Reiciendis facere harum velit, repellendus fuga non consectetur commodi.</li>
+        <li>Vero numquam amet corporis nobis obcaecati aliquam voluptate at, eveniet ad fuga porro deserunt! Corporis ex quam placeat, suscipit laborum cupiditate repellendus, magni, alias laboriosam consequatur quia eaque. Exercitationem, dolorum?</li>
+        <li>Sint, voluptate aspernatur quibusdam eius veniam repudiandae qui expedita dicta suscipit ullam deleniti libero perferendis aliquid nisi veritatis quia dignissimos. Error explicabo, in laudantium consequatur debitis ratione at doloremque culpa?</li>
+        <li>Pariatur fugit excepturi laudantium distinctio vel incidunt totam alias beatae inventore. Quam odit praesentium inventore ut odio porro obcaecati quisquam dolorum. Qui odit modi, nulla architecto quos autem vero maiores?</li>
+        <li>Maxime praesentium, quae quia unde molestiae nihil quam possimus aspernatur soluta quod quaerat alias consequuntur eligendi sunt architecto totam nemo. Ab quos voluptas excepturi tempora. Inventore possimus saepe enim numquam.</li>
+        <li>Ducimus, fugit autem! Sunt atque adipisci vel consectetur eveniet officia, ex obcaecati dolore sint. Eius, enim eos. Esse, quaerat! Accusantium non temporibus necessitatibus alias ullam eum explicabo suscipit vitae totam.</li>
+        <li>Pariatur architecto blanditiis placeat natus quam veniam? Magni eligendi sunt mollitia repellendus error commodi sequi consequuntur voluptatum quas a! Magni enim est ad tempore possimus ratione provident quaerat eligendi quod.</li>
+        <li>Eaque deleniti nostrum eveniet nisi sunt vitae, molestias totam suscipit libero sequi ratione eum repellat magni debitis non, excepturi ipsa nam? Cum quas dolorem maiores. Non sapiente magni aliquid cupiditate!</li>
+    </ol>
+    <script>
+    //También se podria usar una expresion regular como esta.
+    //var expnumero = /^[1-9]$/;
+
+    //Introducimos el texto que queremos añadir pidiendolo en un bucle
+    do {
+
+    var texto = prompt("Introduzca un texto");
+
+    if(texto=="" || texto==null){
+            alert("Error, introduce un texto válido.");
+        }
+
+    } while (texto == "" ||  texto == null);
+
+    //Lo mismo para la posición del texto en la lista
+    do {
+
+    var numero = prompt("Introduzca un número entre 1-9");
+
+    //Si es menor que 1 o mayor que 10 dará error tal como pide el ejercicio.
+    if(numero < 10 || numero > 1){
+    }else{
+        alert("Error, vuelve a intentarlo introduciendo un número del 1 al 10");
+
+    }
+
+    } while (numero > 10 || numero < 1  || numero == "" ||  numero == null);
+
+    //Función que introduce un numero párrafo
+    function introducirP(){
+
+        let capa = document.getElementById("lista");
+        let nuevoParrafo = document.createElement("li");
+        //El nuevo parrafo contendra lo que le pasemos por texto.
+        nuevoParrafo.textContent = texto;
+
+        //Le añadimos un parrafo en la linea que le pasemos por numero.
+        let añadirParrafo = document.querySelectorAll (`#lista li:nth-of-type(${numero})`)[0];
+        capa.insertBefore (nuevoParrafo,añadirParrafo);
+
+    }
+
+    introducirP();
+    
+
+    </script>
+</body>
+
+</html>

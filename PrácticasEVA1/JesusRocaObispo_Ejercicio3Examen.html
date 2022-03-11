@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+    </header>
+    <body>
+        <h1>Examen javascript</h1>
+        <script>
+
+            //Creamos las variables, podemos elegir directamente cuantas palabras queremos introducir.
+            var miarray= [];
+            var contador = parseInt(prompt("Cuantas palabras quieres introducir?"));
+            var palabras = "";
+
+             //Creamos un bucle que pida y concatene las palabras en el array
+            do{
+            palabras = prompt("Escribe alguna palabra");
+            miarray = miarray.concat(palabras);
+            --contador;
+            }while(contador > 0);
+
+            //Esta función ordena las palabras
+            function ordenaArray(miarray){
+
+            miarray.sort();
+            document.write(miarray);
+
+            }
+
+            ordenaArray(miarray);
+        </script>
+    </body>
+</html>

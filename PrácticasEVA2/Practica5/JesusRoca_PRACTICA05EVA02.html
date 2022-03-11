@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica 05 EVA 2: Nos Vamos</title>
+</head>
+
+<body>
+    <h1>Información</h1>
+    <p>
+        <button id="boton" onclick="enlace()">Nos Vamos!!</button>
+    </p>
+    <p>Redireccionando en 5s ...</p>
+
+    <script>
+
+    //También se puede usar -> miVentana = window.open ("https://www.google.com");
+
+    //Función que pide el ejercicio, al pulsar el botón nos lleva a Google.
+    function enlace() {
+
+        location.href = "https://www.google.es/";
+    }
+
+    //Creamos la variable con el metodo añadiendo el nombre de la función y el tiempo que hay que esperar.
+    let espera = setTimeout(tiempo, 5000);
+
+    //Creamos la funcion que nos redirecciona a duckduckgo.
+    function tiempo() {
+
+        location.href = "https://duckduckgo.com/";
+
+    }
+
+    </script>
+</body>
+
+</html>

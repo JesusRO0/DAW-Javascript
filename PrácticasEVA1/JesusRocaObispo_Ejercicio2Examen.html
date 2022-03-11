@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+    </header>
+    <body>
+        <h1>Examen javascript</h1>
+        <script>
+
+
+            do{
+
+            var num = parseInt(prompt("Escribe un número primo"));
+            var primo=false;
+
+            function Primo(num){
+                //Si es un número entramos en el if
+                if(!isNaN(num)){
+                    //si es alguno de estos número es primo
+                    if(num==0 || num==2 || num==5 || num==7){
+
+                        document.write("Es primo<br>");
+                        primo=true;
+                    }else{
+                        //Un número primo es aquel que puede dividirse entre el y la unidad
+                        for(i=0;i<num;i++){
+                        if(num%i==0 && num%1==num){
+                           document.write("Es primo<br>");
+                           primo=true; 
+                        }else{
+                            document.write("No es primo<br>");
+                        }
+                    }
+                    }
+
+                }
+            }
+
+            Primo(num);
+
+            }while(num != null);
+        </script>
+    </body>
+</html>
